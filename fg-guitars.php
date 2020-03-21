@@ -20,5 +20,8 @@ define( 'FG_GUITARS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FG_GUITARS_PLUGIN_DIR_NAME', basename( FG_GUITARS_PLUGIN_DIR_PATH ) );
 define( 'FG_GUITARS_PLUGIN_URL', plugins_url( FG_GUITARS_PLUGIN_DIR_NAME ) );
 
+include 'includes/class-fg-guitars.php';
+include 'includes/class-fg-guitars-post-type.php';
 
+FG_Guitars::getInstance()->init();
 

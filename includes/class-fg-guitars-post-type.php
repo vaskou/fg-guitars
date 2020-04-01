@@ -7,12 +7,14 @@ class FG_Guitars_Post_Type {
 	const POST_TYPE_NAME = 'fg_guitars';
 	const TAXONOMY_NAME = 'fg_guitars_cat';
 	const SLUG = 'guitars';
-//	const SERIAL_NUMBER_META_KEY = 'asn_serial_number';
-//	const CUSTOMER_META_KEY = 'asn_customer';
-//	const PRODUCTS_META_KEY = 'asn_price_overrides';
-//	const TRANSIENT_MESSAGE_KEY = 'asn_admin_messages';
+
+	private $short_description;
+	private $specifications;
 
 	private static $instance = null;
+
+	private function __construct() {
+	}
 
 	public static function getInstance() {
 		if ( self::$instance == null ) {
@@ -122,36 +124,10 @@ class FG_Guitars_Post_Type {
 	}
 
 	public function add_metaboxes() {
-		$cmb = new_cmb2_box( array(
-			'id'           => 'ariston_serial_number_metabox',
-			'title'        => __( 'FG Guitar Attributes', 'fg-guitars' ),
-			'object_types' => array( self::POST_TYPE_NAME ), // Post type
-			'context'      => 'normal',
-			'priority'     => 'high',
-			'show_names'   => true, // Show field names on the left
-		) );
 
-//		$cmb->add_field( array(
-//			'name'             => __( 'Customer', 'fg-guitars' ),
-//			'desc'             => __( 'Select a customer', 'fg-guitars' ),
-//			'id'               => self::CUSTOMER_META_KEY,
-//			'type'             => 'pw_select',
-//			'show_option_none' => true,
-//			'options'          => $this->_get_users(),
-//			'column'           => array(
-//				'position' => 2,
-//				'name'     => __( 'Customer', 'fg-guitars' ),
-//			),
-//			'display_cb'       => array( $this, 'display_customer_column_cb' )
-//		) );
-//
-//		$cmb->add_field( array(
-//			'name'    => __( 'Products', 'fg-guitars' ),
-//			'desc'    => __( 'Change product prices', 'fg-guitars' ),
-//			'id'      => self::PRODUCTS_META_KEY,
-//			'type'    => ASN_CMB2_Product_Prices::FIELD_TYPE,
-//			'options' => $this->_get_products()
-//		) );
+		FG_Guitars_Short_Description_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
+
+		FG_Guitars_Specifications_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
 	}
 
 	public function display_customer_column_cb( $field_args, $field ) {

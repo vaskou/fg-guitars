@@ -1,10 +1,6 @@
 <?php
 
-class FG_Guitars_Specifications_Fields {
-
-	private $name;
-	private $metabox_title;
-	private $fields;
+class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 
 	private static $instance;
 
@@ -19,6 +15,7 @@ class FG_Guitars_Specifications_Fields {
 	private function __construct() {
 		$this->name          = 'specifications';
 		$this->metabox_title = __( 'Specifications', 'fg-guitars' );
+		$this->group_title   = __( 'Guitar Type', 'fg-guitars' );
 		$this->fields        = array(
 			'body'         => array(
 				'label' => __( 'Body', 'fg-guitars' ),
@@ -131,44 +128,15 @@ class FG_Guitars_Specifications_Fields {
 		);
 	}
 
-	public function getFields() {
-		return $this->fields;
-	}
-
 	public function add_metaboxes( $post_type ) {
 		if ( ! function_exists( 'new_cmb2_box' ) ) {
 			return;
 		}
 
-		$cmb = new_cmb2_box( array(
-			'id'           => 'fg_guitars_' . $this->name,
-			'title'        => __( 'Specifications', 'fg-guitars' ),
-			'object_types' => array( $post_type ), // Post type
-			'context'      => 'normal',
-			'priority'     => 'high',
-			'show_names'   => true, // Show field names on the left
-		) );
+		$metabox = $this->_add_metabox( $post_type );
 
-		$group_id = $cmb->add_field( array(
-			'id'      => 'fgg_' . $this->name . '_group',
-			'type'    => 'group',
-			'options' => array(
-				'group_title'   => __( 'Guitar Type {#}', 'cmb2' ),
-				'add_button'    => __( 'Add Another Guitar Type', 'cmb2' ),
-				'remove_button' => __( 'Remove Guitar Type', 'cmb2' ),
-				'sortable'      => true,
-				// 'closed'         => true, // true to have the groups closed by default
-				// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-			),
-		) );
+		$this->_add_metabox_group_field( $metabox );
 
-		foreach ( $this->fields as $id => $values ) {
-			$cmb->add_group_field( $group_id, array(
-				'id'   => 'fgg_' . $this->name . '_' . $id,
-				'name' => $values['label'],
-				'type' => $values['type'],
-			) );
-		}
 	}
 
 

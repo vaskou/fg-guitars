@@ -45,22 +45,5 @@ class FG_Guitars_Short_Description_Fields extends FG_Guitars_Post_Type_Fields {
 		$this->_add_metabox_fields( $metabox );
 	}
 
-	/**
-	 * @param $metabox CMB2
-	 */
-	private function _add_metabox_fields( $metabox ) {
-		if ( empty( $metabox ) ) {
-			return;
-		}
-
-		foreach ( $this->fields as $id => $values ) {
-			$metabox->add_field( array(
-				'id'   => 'fgg_' . $this->name . '_' . $id,
-				'name' => $values['label'],
-				'type' => $values['type'],
-			) );
-		}
-	}
-
 
 }

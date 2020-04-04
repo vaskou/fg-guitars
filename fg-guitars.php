@@ -29,6 +29,7 @@ include 'includes/guitars-post-type-fields/class-fg-guitars-short-description-fi
 include 'includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php';
 include 'includes/guitars-post-type-fields/class-fg-guitars-sounds-fields.php';
 include 'includes/guitars-post-type-fields/class-fg-guitars-features-fields.php';
+include 'includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php';
 
 FG_Guitars::getInstance()->init();
 

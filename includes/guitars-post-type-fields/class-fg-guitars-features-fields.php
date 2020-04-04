@@ -18,7 +18,7 @@ class FG_Guitars_Features_Fields extends FG_Guitars_Post_Type_Fields {
 		$this->fields        = array(
 			'feature' => array(
 				'label'      => __( 'Feature', 'fg-guitars' ),
-				'type'       => 'text',
+				'type'       => 'fg_features_cmb2_field_dropdown',
 				'repeatable' => true,
 			),
 		);

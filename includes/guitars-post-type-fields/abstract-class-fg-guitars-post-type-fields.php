@@ -33,54 +33,69 @@ abstract class FG_Guitars_Post_Type_Fields {
 		}
 
 		foreach ( $this->fields as $id => $values ) {
-			$metabox->add_field( array(
-				'id'         => 'fgg_' . $this->name . '_' . $id,
-				'name'       => $values['label'],
-				'type'       => $values['type'],
-				'repeatable' => ! empty( $values['repeatable'] ) ? $values['repeatable'] : false,
-			) );
+
+			$defaults = array(
+				'id'   => 'fgg_' . $this->name . '_' . $id,
+				'name' => $values['label'],
+			);
+
+			$args = wp_parse_args( $values, $defaults );
+
+			if ( 'group' == $values['type'] ) {
+				$this->_add_metabox_group_field( $metabox, $args );
+			} else {
+				$metabox->add_field( $args );
+			}
+
 		}
 	}
 
 	/**
 	 * @param $metabox CMB2
 	 */
-	protected function _add_metabox_group_field( $metabox ) {
+	private function _add_metabox_group_field( $metabox, $args ) {
 		if ( empty( $metabox ) ) {
 			return;
 		}
 
+		$group_title = $args['name'];
+
 		$group_id = $metabox->add_field( array(
-			'id'      => 'fgg_' . $this->name . '_group',
+			'id'      => $args['id'],
 			'type'    => 'group',
 			'options' => array(
-				'group_title'   => $this->group_title . ' {#}',
-				'add_button'    => sprintf( __( 'Add Another %s', 'cmb2' ), $this->group_title ),
-				'remove_button' => sprintf( __( 'Remove %s', 'cmb2' ), $this->group_title ),
+				'group_title'   => $group_title . ' {#}',
+				'add_button'    => sprintf( __( 'Add Another %s', 'cmb2' ), $group_title ),
+				'remove_button' => sprintf( __( 'Remove %s', 'cmb2' ), $group_title ),
 				'sortable'      => true,
 				// 'closed'         => true, // true to have the groups closed by default
 				// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
 			),
 		) );
 
-		$this->_add_metabox_group_fields( $metabox, $group_id );
+		$this->_add_metabox_group_fields( $metabox, $group_id, $args );
 	}
 
 	/**
 	 * @param $metabox CMB2
 	 * @param $group_id integer
 	 */
-	protected function _add_metabox_group_fields( $metabox, $group_id ) {
+	private function _add_metabox_group_fields( $metabox, $group_id, $args ) {
 		if ( empty( $metabox ) ) {
 			return;
 		}
 
-		foreach ( $this->fields as $id => $values ) {
-			$metabox->add_group_field( $group_id, array(
-				'id'   => 'fgg_' . $this->name . '_' . $id,
+		foreach ( $args['fields'] as $id => $values ) {
+
+			$defaults = array(
+				'id'   => $id,
 				'name' => $values['label'],
-				'type' => $values['type'],
-			) );
+			);
+
+			$args = wp_parse_args( $values, $defaults );
+
+			$metabox->add_group_field( $group_id, $args );
+
 		}
 
 	}

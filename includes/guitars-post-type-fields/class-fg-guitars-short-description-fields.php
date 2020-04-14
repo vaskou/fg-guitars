@@ -28,10 +28,6 @@ class FG_Guitars_Short_Description_Fields extends FG_Guitars_Post_Type_Fields {
 				'label' => __( 'Style', 'fg-guitars' ),
 				'type'  => 'text'
 			),
-			'photo' => array(
-				'label' => __( 'Photo', 'fg-guitars' ),
-				'type'  => 'text'
-			),
 		);
 	}
 

@@ -25,6 +25,7 @@ include 'includes/class-fg-guitars.php';
 include 'includes/class-fg-guitars-post-type.php';
 
 include 'includes/guitars-post-type-fields/abstract-class-fg-guitars-post-type-fields.php';
+include 'includes/guitars-post-type-fields/class-fg-guitars-images-fields.php';
 include 'includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php';
 include 'includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php';
 include 'includes/guitars-post-type-fields/class-fg-guitars-sounds-fields.php';

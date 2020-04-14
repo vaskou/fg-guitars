@@ -8,11 +8,11 @@ class FG_Guitars_Post_Type {
 	const TAXONOMY_NAME = 'fg_guitars_cat';
 	const SLUG = 'guitars';
 
-	private $short_description;
-	private $specifications;
-
 	private static $instance = null;
 
+	/**
+	 * FG_Guitars_Post_Type constructor.
+	 */
 	private function __construct() {
 	}
 
@@ -30,6 +30,9 @@ class FG_Guitars_Post_Type {
 		add_action( 'cmb2_admin_init', array( $this, 'add_metaboxes' ) );
 	}
 
+	/**
+	 * Registers post type
+	 */
 	public function register_post_type() {
 		$labels = array(
 			'name'                  => _x( 'FG Guitars', 'FG Guitars General Name', 'fg-guitars' ),
@@ -87,6 +90,9 @@ class FG_Guitars_Post_Type {
 		register_post_type( self::POST_TYPE_NAME, $args );
 	}
 
+	/**
+	 * Registers taxonomy
+	 */
 	public function register_taxonomy() {
 
 		$labels = array(
@@ -119,8 +125,12 @@ class FG_Guitars_Post_Type {
 		register_taxonomy( self::TAXONOMY_NAME, array( self::POST_TYPE_NAME ), $args );
 	}
 
+	/**
+	 * Adds metaboxes
+	 */
 	public function add_metaboxes() {
 
+		FG_Guitars_Images_Fields::getInstance()->add_metaboxes(self::POST_TYPE_NAME);
 		FG_Guitars_Short_Description_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Specifications_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Sounds_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
@@ -129,18 +139,96 @@ class FG_Guitars_Post_Type {
 
 	}
 
-	private function _get_items() {
+	/**
+	 * @return int[]|WP_Post[]
+	 */
+	public function get_items() {
+		return $this->_get_items();
+	}
 
-		$args = array(
+	/**
+	 * @return int|WP_Error|WP_Term[]
+	 */
+	public function get_categories() {
+		return $this->_get_categories();
+	}
+
+	public function get_categories_items_array() {
+
+		$categories_items_array = array();
+
+		$categories = $this->_get_categories();
+
+		if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
+			foreach ( $categories as $category ) {
+				$cat_id    = $category->term_id;
+				$post_args = array(
+					'tax_query' => array(
+						array(
+							'taxonomy'         => self::TAXONOMY_NAME,
+							'terms'            => $cat_id,
+							'include_children' => false // Remove if you need posts from term 7 child terms
+						),
+					),
+				);
+
+				$items = $this->_get_items( $post_args );
+
+				$categories_items_array[ $cat_id ] = array(
+					'cat_id'   => $cat_id,
+					'cat_name' => $category->name,
+					'items'    => array()
+				);
+
+				foreach ( $items as $item ) {
+					$categories_items_array[ $cat_id ]['items'][ $item->ID ] = array(
+						'id'   => $item->ID,
+						'title' => $item->post_title
+					);
+				}
+			}
+		}
+
+		return $categories_items_array;
+
+	}
+
+	/**
+	 * @param array $args
+	 *
+	 * @return int[]|WP_Post[]
+	 */
+	private function _get_items( $args = array() ) {
+
+		$default = array(
 			'post_type'      => self::POST_TYPE_NAME,
 			'post_status'    => 'publish',
 			'posts_per_page' => - 1,
 		);
+
+		$args = wp_parse_args( $args, $default );
 
 		$query = new WP_Query( $args );
 
 		return $query->get_posts();
 	}
 
+	/**
+	 * @param array $args
+	 *
+	 * @return int|WP_Error|WP_Term[]
+	 */
+	private function _get_categories( $args = array() ) {
+
+		$default = array(
+			'taxonomy' => self::TAXONOMY_NAME,
+			'orderby'  => 'name',
+			'order'    => 'ASC'
+		);
+
+		$args = wp_parse_args( $args, $default );
+
+		return get_terms( $args );
+	}
 
 }

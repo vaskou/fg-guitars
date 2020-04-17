@@ -6,7 +6,8 @@ class FG_Guitars_Post_Type {
 
 	const POST_TYPE_NAME = 'fg_guitars';
 	const TAXONOMY_NAME = 'fg_guitars_cat';
-	const SLUG = 'guitars';
+	const POST_TYPE_SLUG = 'guitars';
+	const TAXONOMY_SLUG = 'guitar_cat';
 
 	private static $instance = null;
 
@@ -65,7 +66,7 @@ class FG_Guitars_Post_Type {
 		);
 
 		$rewrite = array(
-			'slug'       => self::SLUG,
+			'slug'       => self::POST_TYPE_SLUG,
 			'with_front' => true,
 			'pages'      => true,
 			'feeds'      => true,
@@ -108,7 +109,15 @@ class FG_Guitars_Post_Type {
 			'new_item_name'     => __( 'New FG Guitar Category Name', 'fg-guitars' ),
 			'menu_name'         => __( 'FG Guitar Categories', 'fg-guitars' ),
 		);
-		$args   = array(
+
+		$rewrite = array(
+			'slug'       => self::TAXONOMY_SLUG,
+			'with_front' => true,
+			'pages'      => true,
+			'feeds'      => true,
+		);
+
+		$args = array(
 			'hierarchical'       => true, // make it hierarchical (like categories)
 			'labels'             => $labels,
 			'public'             => true,
@@ -119,7 +128,7 @@ class FG_Guitars_Post_Type {
 			'show_in_quick_edit' => false,
 			'query_var'          => true,
 			'meta_box_cb'        => 'post_categories_meta_box',
-			'rewrite'            => true,
+			'rewrite'            => $rewrite,
 		);
 
 		register_taxonomy( self::TAXONOMY_NAME, array( self::POST_TYPE_NAME ), $args );
@@ -130,7 +139,7 @@ class FG_Guitars_Post_Type {
 	 */
 	public function add_metaboxes() {
 
-		FG_Guitars_Images_Fields::getInstance()->add_metaboxes(self::POST_TYPE_NAME);
+		FG_Guitars_Images_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Short_Description_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Specifications_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Sounds_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
@@ -181,9 +190,13 @@ class FG_Guitars_Post_Type {
 				);
 
 				foreach ( $items as $item ) {
+					$images_fields = FG_Guitars_Images_Fields::getInstance();
+					$image_meta    = $images_fields->getMenuImageID( $item->ID );
+
 					$categories_items_array[ $cat_id ]['items'][ $item->ID ] = array(
-						'id'   => $item->ID,
-						'title' => $item->post_title
+						'id'    => $item->ID,
+						'title' => $item->post_title,
+						'image' => wp_get_attachment_image( $image_meta, 'full' )
 					);
 				}
 			}

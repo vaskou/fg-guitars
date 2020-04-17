@@ -2,6 +2,9 @@
 
 abstract class FG_Guitars_Post_Type_Fields {
 
+	private $prefix_metabox_id = 'fg_guitars_';
+	private $prefix_field_id = 'fgg_';
+
 	protected $name;
 	protected $metabox_title;
 	protected $group_title;
@@ -11,11 +14,50 @@ abstract class FG_Guitars_Post_Type_Fields {
 		return $this->fields;
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getPrefixMetaboxId() {
+		return $this->prefix_metabox_id;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPrefixFieldId() {
+		return $this->prefix_field_id;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getMetaboxTitle() {
+		return $this->metabox_title;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getGroupTitle() {
+		return $this->group_title;
+	}
+
+	public function getFieldMetaKeyPrefix() {
+		return $this->getPrefixFieldId() . $this->getName() . '_';
+	}
+
 	abstract public function add_metaboxes( $post_type );
 
 	protected function _add_metabox( $post_type ) {
 		return new_cmb2_box( array(
-			'id'           => 'fg_guitars_' . $this->name,
+			'id'           => $this->prefix_metabox_id . $this->name,
 			'title'        => $this->metabox_title,
 			'object_types' => array( $post_type ), // Post type
 			'context'      => 'normal',
@@ -35,7 +77,7 @@ abstract class FG_Guitars_Post_Type_Fields {
 		foreach ( $this->fields as $id => $values ) {
 
 			$defaults = array(
-				'id'   => 'fgg_' . $this->name . '_' . $id,
+				'id'   => $this->getFieldMetaKeyPrefix() . $id,
 				'name' => $values['label'],
 			);
 

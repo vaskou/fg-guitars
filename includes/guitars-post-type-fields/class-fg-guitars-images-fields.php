@@ -16,16 +16,16 @@ class FG_Guitars_Images_Fields extends FG_Guitars_Post_Type_Fields {
 		$this->name          = 'images';
 		$this->metabox_title = __( 'Images', 'fg-guitars' );
 		$this->fields        = array(
-			'featured_image' => array(
-				'label'   => __( 'Featured Image', 'fg-guitars' ),
-				'type'    => 'file',
-				'options' => array(
+			'menu_image' => array(
+				'label'        => __( 'Menu Image', 'fg-guitars' ),
+				'type'         => 'file',
+				'options'      => array(
 					'url' => false
 				),
-				'text'    => array(
+				'text'         => array(
 					'add_upload_file_text' => 'Add Image'
 				),
-				'preview_size'   => array( 200, 100 )
+				'preview_size' => array( 200, 100 )
 			),
 			'image_gallery'  => array(
 				'label' => __( 'Images', 'fg-guitars' ),
@@ -44,5 +44,15 @@ class FG_Guitars_Images_Fields extends FG_Guitars_Post_Type_Fields {
 		$this->_add_metabox_fields( $metabox );
 	}
 
+	public function getMenuImage( $post_id ) {
+		return get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'menu_image', true );
+	}
 
+	public function getMenuImageID( $post_id ) {
+		return get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'menu_image_id', true );
+	}
+
+	public function getImageGallery( $post_id ) {
+		return get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'image_gallery', true );
+	}
 }

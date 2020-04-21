@@ -15,6 +15,7 @@ class FG_Guitars {
 	}
 
 	public function init() {
+		FG_Guitars_Dependencies::getInstance()->init();
 		FG_Guitars_Post_Type::getInstance()->init();
 	}
 }

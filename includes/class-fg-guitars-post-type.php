@@ -139,12 +139,12 @@ class FG_Guitars_Post_Type {
 	 */
 	public function add_metaboxes() {
 
-		FG_Guitars_Images_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Short_Description_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Specifications_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Sounds_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Features_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Pricing_Fields::getInstance()->add_metaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Images_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Short_Description_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Specifications_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Sounds_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Features_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Pricing_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
 
 	}
 

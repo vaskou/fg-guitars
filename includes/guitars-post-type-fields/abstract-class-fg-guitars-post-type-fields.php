@@ -5,14 +5,9 @@ abstract class FG_Guitars_Post_Type_Fields {
 	private $prefix_metabox_id = 'fg_guitars_';
 	private $prefix_field_id = 'fgg_';
 
-	protected $name;
+	protected $metabox_id;
 	protected $metabox_title;
-	protected $group_title;
 	protected $fields;
-
-	public function getFields() {
-		return $this->fields;
-	}
 
 	/**
 	 * @return string
@@ -31,8 +26,8 @@ abstract class FG_Guitars_Post_Type_Fields {
 	/**
 	 * @return mixed
 	 */
-	public function getName() {
-		return $this->name;
+	public function getMetaboxId() {
+		return $this->metabox_id;
 	}
 
 	/**
@@ -45,23 +40,42 @@ abstract class FG_Guitars_Post_Type_Fields {
 	/**
 	 * @return mixed
 	 */
-	public function getGroupTitle() {
-		return $this->group_title;
+	public function getFields() {
+		return $this->fields;
+	}
+
+	public function getPostMeta( $post_id ) {
+		$post_meta    = array();
+		$field_prefix = $this->getFieldMetaKeyPrefix();
+
+		foreach ( $this->fields as $key => $args ) {
+			$post_meta[ $this->metabox_id ][ $key ] = get_post_meta( $post_id, $field_prefix . $key, true );
+		}
+
+		return $post_meta;
 	}
 
 	public function getFieldMetaKeyPrefix() {
-		return $this->getPrefixFieldId() . $this->getName() . '_';
+		return $this->getPrefixFieldId() . $this->getMetaboxId() . '_';
 	}
 
-	abstract public function add_metaboxes( $post_type );
+	public function addMetaboxes( $post_type, $context = 'normal', $priority = 'high' ) {
+		if ( ! function_exists( 'new_cmb2_box' ) ) {
+			return;
+		}
 
-	protected function _add_metabox( $post_type ) {
+		$metabox = $this->_addMetabox( $post_type, $context, $priority );
+
+		$this->_addMetaboxFields( $metabox );
+	}
+
+	protected function _addMetabox( $post_type, $context = 'normal', $priority = 'high' ) {
 		return new_cmb2_box( array(
-			'id'           => $this->prefix_metabox_id . $this->name,
-			'title'        => $this->metabox_title,
+			'id'           => $this->getPrefixMetaboxId() . $this->getMetaboxId(),
+			'title'        => $this->getMetaboxTitle(),
 			'object_types' => array( $post_type ), // Post type
-			'context'      => 'normal',
-			'priority'     => 'high',
+			'context'      => $context,
+			'priority'     => $priority,
 			'show_names'   => true, // Show field names on the left
 		) );
 	}
@@ -69,7 +83,7 @@ abstract class FG_Guitars_Post_Type_Fields {
 	/**
 	 * @param $metabox CMB2
 	 */
-	protected function _add_metabox_fields( $metabox ) {
+	protected function _addMetaboxFields( $metabox ) {
 		if ( empty( $metabox ) ) {
 			return;
 		}
@@ -77,14 +91,13 @@ abstract class FG_Guitars_Post_Type_Fields {
 		foreach ( $this->fields as $id => $values ) {
 
 			$defaults = array(
-				'id'   => $this->getFieldMetaKeyPrefix() . $id,
-				'name' => $values['label'],
+				'id' => $this->getFieldMetaKeyPrefix() . $id,
 			);
 
 			$args = wp_parse_args( $values, $defaults );
 
 			if ( 'group' == $values['type'] ) {
-				$this->_add_metabox_group_field( $metabox, $args );
+				$this->_addMetaboxGroupField( $metabox, $args );
 			} else {
 				$metabox->add_field( $args );
 			}
@@ -95,7 +108,7 @@ abstract class FG_Guitars_Post_Type_Fields {
 	/**
 	 * @param $metabox CMB2
 	 */
-	private function _add_metabox_group_field( $metabox, $args ) {
+	private function _addMetaboxGroupField( $metabox, $args ) {
 		if ( empty( $metabox ) ) {
 			return;
 		}
@@ -107,22 +120,22 @@ abstract class FG_Guitars_Post_Type_Fields {
 			'type'    => 'group',
 			'options' => array(
 				'group_title'   => $group_title . ' {#}',
-				'add_button'    => sprintf( __( 'Add Another %s', 'cmb2' ), $group_title ),
-				'remove_button' => sprintf( __( 'Remove %s', 'cmb2' ), $group_title ),
+				'add_button'    => sprintf( __( 'Add Another %s', 'fg-guitars' ), $group_title ),
+				'remove_button' => sprintf( __( 'Remove %s', 'fg-guitars' ), $group_title ),
 				'sortable'      => true,
 				// 'closed'         => true, // true to have the groups closed by default
 				// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
 			),
 		) );
 
-		$this->_add_metabox_group_fields( $metabox, $group_id, $args );
+		$this->_addMetaboxGroupFields( $metabox, $group_id, $args );
 	}
 
 	/**
 	 * @param $metabox CMB2
 	 * @param $group_id integer
 	 */
-	private function _add_metabox_group_fields( $metabox, $group_id, $args ) {
+	private function _addMetaboxGroupFields( $metabox, $group_id, $args ) {
 		if ( empty( $metabox ) ) {
 			return;
 		}
@@ -130,8 +143,7 @@ abstract class FG_Guitars_Post_Type_Fields {
 		foreach ( $args['fields'] as $id => $values ) {
 
 			$defaults = array(
-				'id'   => $id,
-				'name' => $values['label'],
+				'id' => $id,
 			);
 
 			$args = wp_parse_args( $values, $defaults );

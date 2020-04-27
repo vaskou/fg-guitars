@@ -13,11 +13,11 @@ class FG_Guitars_Images_Fields extends FG_Guitars_Post_Type_Fields {
 	}
 
 	private function __construct() {
-		$this->name          = 'images';
+		$this->metabox_id    = 'images';
 		$this->metabox_title = __( 'Images', 'fg-guitars' );
 		$this->fields        = array(
-			'menu_image' => array(
-				'label'        => __( 'Menu Image', 'fg-guitars' ),
+			'menu_image'    => array(
+				'name'         => __( 'Menu Image', 'fg-guitars' ),
 				'type'         => 'file',
 				'options'      => array(
 					'url' => false
@@ -27,21 +27,11 @@ class FG_Guitars_Images_Fields extends FG_Guitars_Post_Type_Fields {
 				),
 				'preview_size' => array( 200, 100 )
 			),
-			'image_gallery'  => array(
-				'label' => __( 'Images', 'fg-guitars' ),
-				'type'  => 'file_list'
+			'image_gallery' => array(
+				'name' => __( 'Images', 'fg-guitars' ),
+				'type' => 'file_list'
 			),
 		);
-	}
-
-	public function add_metaboxes( $post_type ) {
-		if ( ! function_exists( 'new_cmb2_box' ) ) {
-			return;
-		}
-
-		$metabox = $this->_add_metabox( $post_type );
-
-		$this->_add_metabox_fields( $metabox );
 	}
 
 	public function getMenuImage( $post_id ) {

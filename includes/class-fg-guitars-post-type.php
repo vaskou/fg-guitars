@@ -76,7 +76,7 @@ class FG_Guitars_Post_Type {
 			'label'         => __( 'FG Guitar', 'fg-guitars' ),
 			'description'   => __( 'FG Guitar Description', 'fg-guitars' ),
 			'labels'        => $labels,
-			'supports'      => array( 'title', 'editor' ),
+			'supports'      => array( 'title', 'editor', 'page-attributes' ),
 			'taxonomies'    => array( self::TAXONOMY_NAME ),
 			'hierarchical'  => false,
 			'public'        => true,

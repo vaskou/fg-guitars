@@ -2,6 +2,8 @@
 
 class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 
+	private $has_variations = false;
+
 	private static $instance;
 
 	public static function getInstance() {
@@ -133,4 +135,24 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 		);
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function hasVariations() {
+		return $this->has_variations;
+	}
+
+	public function getFieldLabel( $field ) {
+		return $this->fields['specs']['fields'][ $field ]['name'];
+	}
+
+	public function getPostMeta( $post_id ) {
+		$post_meta = parent::getPostMeta( $post_id );
+
+		$specs = ! empty( $post_meta['specifications']['specs'] ) ? $post_meta['specifications']['specs'] : array();
+
+		$this->has_variations = count( $specs ) > 1;
+
+		return $specs;
+	}
 }

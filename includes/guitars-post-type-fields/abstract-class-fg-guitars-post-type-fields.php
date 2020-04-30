@@ -5,9 +5,10 @@ abstract class FG_Guitars_Post_Type_Fields {
 	private $prefix_metabox_id = 'fg_guitars_';
 	private $prefix_field_id = 'fgg_';
 
-	protected $metabox_id;
-	protected $metabox_title;
-	protected $fields;
+	protected $metabox_id = '';
+	protected $metabox_title = '';
+	protected $fields = array();
+	protected $enabled = true;
 
 	/**
 	 * @return string
@@ -44,6 +45,13 @@ abstract class FG_Guitars_Post_Type_Fields {
 		return $this->fields;
 	}
 
+	/**
+	 * @return bool
+	 */
+	public function isEnabled() {
+		return $this->enabled;
+	}
+
 	public function getPostMeta( $post_id ) {
 		$post_meta    = array();
 		$field_prefix = $this->getFieldMetaKeyPrefix();
@@ -57,6 +65,10 @@ abstract class FG_Guitars_Post_Type_Fields {
 
 	public function getFieldMetaKeyPrefix() {
 		return $this->getPrefixFieldId() . $this->getMetaboxId() . '_';
+	}
+
+	public function getFieldLabel( $field ) {
+		return $this->fields[ $field ]['name'];
 	}
 
 	public function addMetaboxes( $post_type, $context = 'normal', $priority = 'high' ) {
@@ -153,6 +165,4 @@ abstract class FG_Guitars_Post_Type_Fields {
 		}
 
 	}
-
-
 }

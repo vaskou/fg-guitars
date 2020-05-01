@@ -22,111 +22,122 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 				'name'   => __( 'Guitar Type', 'fg-guitars' ),
 				'type'   => 'group',
 				'fields' => array(
-					'body'         => array(
+					'configuration_image' => array(
+						'name'         => __( 'Configuration Image', 'fg-guitars' ),
+						'type'         => 'file',
+						'options'      => array(
+							'url' => false,
+						),
+						'text'         => array(
+							'add_upload_file_text' => __( 'Add Image', 'fg-slider' )
+						),
+						'preview_size' => 'thumbnail',
+					),
+					'body'                => array(
 						'name' => __( 'Body', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'top'          => array(
+					'top'                 => array(
 						'name' => __( 'Top', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'back'         => array(
+					'back'                => array(
 						'name' => __( 'Back', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'sides'        => array(
+					'sides'               => array(
 						'name' => __( 'Sides', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'inside'       => array(
+					'inside'              => array(
 						'name' => __( 'Inside', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'bracing'      => array(
+					'bracing'             => array(
 						'name' => __( 'Bracing', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'neck'         => array(
+					'neck'                => array(
 						'name' => __( 'Neck', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'headstock'    => array(
+					'headstock'           => array(
 						'name' => __( 'Headstock', 'fg-guitars' ),
 						'type' => 'textarea'
 					),
-					'fingerboard'  => array(
+					'fingerboard'         => array(
 						'name' => __( 'Fingerboard', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'binding'      => array(
+					'binding'             => array(
 						'name' => __( 'Binding', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'f_holes'      => array(
+					'f_holes'             => array(
 						'name' => __( 'F-Hole', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'width_at_nut' => array(
+					'width_at_nut'        => array(
 						'name' => __( 'Width At Nut', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'scale'        => array(
+					'scale'               => array(
 						'name' => __( 'Scale', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'frets'        => array(
+					'frets'               => array(
 						'name' => __( 'Frets', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'bridge'       => array(
+					'bridge'              => array(
 						'name' => __( 'Bridge', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'tailpiece'    => array(
+					'tailpiece'           => array(
 						'name' => __( 'Tailpiece*', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'tailpiece2'   => array(
+					'tailpiece2'          => array(
 						'name' => __( 'Tailpiece', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'pickup'       => array(
+					'pickup'              => array(
 						'name' => __( 'Pickup', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'controls'     => array(
+					'controls'            => array(
 						'name' => __( 'Controls', 'fg-guitars' ),
 						'type' => 'textarea'
 					),
-					'hardware'     => array(
+					'hardware'            => array(
 						'name' => __( 'Hardware', 'fg-guitars' ),
 						'type' => 'textarea'
 					),
-					'pickguard'    => array(
+					'pickguard'           => array(
 						'name' => __( 'Pickguard', 'fg-guitars' ),
 						'type' => 'textarea'
 					),
-					'fingerrest'   => array(
+					'fingerrest'          => array(
 						'name' => __( 'Fingerrest*', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'finish'       => array(
+					'finish'              => array(
 						'name' => __( 'Finish', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'color'        => array(
+					'color'               => array(
 						'name' => __( 'Color', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'strings'      => array(
+					'strings'             => array(
 						'name' => __( 'Strings', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'case'         => array(
+					'case'                => array(
 						'name' => __( 'Case', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'asterisk'     => array(
+					'asterisk'            => array(
 						'name' => __( 'Asterisk', 'fg-guitars' ),
 						'type' => 'textarea'
 					),

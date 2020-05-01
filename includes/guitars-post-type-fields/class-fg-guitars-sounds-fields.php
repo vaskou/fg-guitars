@@ -24,4 +24,10 @@ class FG_Guitars_Sounds_Fields extends FG_Guitars_Post_Type_Fields {
 		);
 	}
 
+	public function getPostMeta( $post_id ) {
+		$post_meta = parent::getPostMeta( $post_id );
+
+		return ! empty( $post_meta['sounds']['videos'] ) ? $post_meta['sounds']['videos'] : array();
+	}
+
 }

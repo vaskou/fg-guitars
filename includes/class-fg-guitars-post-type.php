@@ -179,6 +179,8 @@ class FG_Guitars_Post_Type {
 							'include_children' => false // Remove if you need posts from term 7 child terms
 						),
 					),
+					'orderby'   => 'menu_order name',
+					'order'     => 'ASC'
 				);
 
 				$items = $this->_get_items( $post_args );

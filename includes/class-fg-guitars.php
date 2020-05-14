@@ -17,5 +17,7 @@ class FG_Guitars {
 	public function init() {
 		FG_Guitars_Dependencies::getInstance()->init();
 		FG_Guitars_Post_Type::getInstance()->init();
+		FG_Guitars_Shortcodes::getInstance()->init();
+		FG_Guitars_CMB2_Features_Field_Dropdown::get_instance();
 	}
 }

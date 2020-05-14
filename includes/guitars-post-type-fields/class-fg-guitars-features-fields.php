@@ -23,21 +23,12 @@ class FG_Guitars_Features_Fields extends FG_Guitars_Post_Type_Fields {
 		$this->metabox_title = __( 'Features', 'fg-guitars' );
 		$this->fields        = array();
 
-		if ( class_exists( 'FG_Features_CMB2_Field_Dropdown' ) ) {
-			$this->fields['feature'] = array(
-				'name'       => __( 'Feature', 'fg-guitars' ),
-				'type'       => 'fg_features_cmb2_field_dropdown',
-				'repeatable' => true,
-			);
-		}
+		$this->fields['feature'] = array(
+			'name'       => __( 'Feature & Pickup', 'fg-guitars' ),
+			'type'       => 'fg_guitars_cmb2_features_field_dropdown',
+			'repeatable' => true,
+		);
 
-		if ( class_exists( 'FG_Pickups_CMB2_Field_Dropdown' ) ) {
-			$this->fields['pickup'] = array(
-				'name'       => __( 'Pickup', 'fg-guitars' ),
-				'type'       => 'fg_pickups_cmb2_field_dropdown',
-				'repeatable' => true,
-			);
-		}
 	}
 
 }

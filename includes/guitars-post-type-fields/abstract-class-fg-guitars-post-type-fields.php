@@ -57,7 +57,11 @@ abstract class FG_Guitars_Post_Type_Fields {
 		$field_prefix = $this->getFieldMetaKeyPrefix();
 
 		foreach ( $this->fields as $key => $args ) {
-			$post_meta[ $this->metabox_id ][ $key ] = get_post_meta( $post_id, $field_prefix . $key, true );
+			if ( ! empty( $args['type'] ) && 'wysiwyg' == $args['type'] ) {
+				$post_meta[ $this->metabox_id ][ $key ] = wpautop( get_post_meta( $post_id, $field_prefix . $key, true ) );
+			} else {
+				$post_meta[ $this->metabox_id ][ $key ] = get_post_meta( $post_id, $field_prefix . $key, true );
+			}
 		}
 
 		return $post_meta;
@@ -69,6 +73,10 @@ abstract class FG_Guitars_Post_Type_Fields {
 
 	public function getFieldLabel( $field ) {
 		return $this->fields[ $field ]['name'];
+	}
+
+	public function getFieldType( $field ) {
+		return $this->fields[ $field ]['type'];
 	}
 
 	public function addMetaboxes( $post_type, $context = 'normal', $priority = 'high' ) {

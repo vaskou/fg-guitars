@@ -37,13 +37,29 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 						'name' => __( 'Body', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'top'                 => array(
-						'name' => __( 'Top', 'fg-guitars' ),
+					'body_top'            => array(
+						'name' => __( 'Body Top', 'fg-guitars' ),
 						'type' => 'text'
 					),
+					'top'                 => array(
+						'name'    => __( 'Top', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
+					),
 					'back'                => array(
-						'name' => __( 'Back', 'fg-guitars' ),
-						'type' => 'text'
+						'name'    => __( 'Back', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
 					),
 					'sides'               => array(
 						'name' => __( 'Sides', 'fg-guitars' ),
@@ -56,6 +72,16 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 					'bracing'             => array(
 						'name' => __( 'Bracing', 'fg-guitars' ),
 						'type' => 'text'
+					),
+					'neck_joint'          => array(
+						'name'    => __( 'Neck Joint', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
 					),
 					'neck'                => array(
 						'name' => __( 'Neck', 'fg-guitars' ),
@@ -70,8 +96,14 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 						'type' => 'text'
 					),
 					'binding'             => array(
-						'name' => __( 'Binding', 'fg-guitars' ),
-						'type' => 'text'
+						'name'    => __( 'Binding', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
 					),
 					'f_holes'             => array(
 						'name' => __( 'F-Hole', 'fg-guitars' ),
@@ -90,24 +122,44 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 						'type' => 'text'
 					),
 					'bridge'              => array(
-						'name' => __( 'Bridge', 'fg-guitars' ),
-						'type' => 'text'
+						'name'    => __( 'Bridge', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
 					),
 					'tailpiece'           => array(
-						'name' => __( 'Tailpiece*', 'fg-guitars' ),
-						'type' => 'text'
+						'name'    => __( 'Tailpiece', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
 					),
-					'tailpiece2'          => array(
-						'name' => __( 'Tailpiece', 'fg-guitars' ),
-						'type' => 'text'
-					),
-					'pickup'              => array(
-						'name' => __( 'Pickup', 'fg-guitars' ),
-						'type' => 'text'
+					'pickups'             => array(
+						'name'    => __( 'Pickups', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
 					),
 					'controls'            => array(
-						'name' => __( 'Controls', 'fg-guitars' ),
-						'type' => 'textarea'
+						'name'    => __( 'Controls', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
 					),
 					'hardware'            => array(
 						'name' => __( 'Hardware', 'fg-guitars' ),
@@ -118,7 +170,7 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 						'type' => 'textarea'
 					),
 					'fingerrest'          => array(
-						'name' => __( 'Fingerrest*', 'fg-guitars' ),
+						'name' => __( 'Fingerrest', 'fg-guitars' ),
 						'type' => 'text'
 					),
 					'finish'              => array(
@@ -134,8 +186,14 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 						'type' => 'text'
 					),
 					'case'                => array(
-						'name' => __( 'Case', 'fg-guitars' ),
-						'type' => 'text'
+						'name'    => __( 'Case', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
 					),
 					'asterisk'            => array(
 						'name' => __( 'Asterisk', 'fg-guitars' ),
@@ -155,6 +213,10 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 
 	public function getFieldLabel( $field ) {
 		return $this->fields['specs']['fields'][ $field ]['name'];
+	}
+
+	public function getFieldType( $field ) {
+		return $this->fields['specs']['fields'][ $field ]['type'];
 	}
 
 	public function getPostMeta( $post_id ) {

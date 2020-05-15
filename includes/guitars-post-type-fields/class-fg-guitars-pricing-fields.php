@@ -17,24 +17,42 @@ class FG_Guitars_Pricing_Fields extends FG_Guitars_Post_Type_Fields {
 		$this->metabox_title = __( 'Pricing', 'fg-guitars' );
 		$this->fields        = array(
 			'price'         => array(
-				'name' => __( 'Base price', 'fg-guitars' ),
-				'type' => 'text_money',
+				'name'       => __( 'Base price', 'fg-guitars' ),
+				'type'       => 'text_small',
+				'attributes' => array(
+					'type' => 'number',
+				)
 			),
 			'price_text'    => array(
-				'name' => __( 'Base price text', 'fg-guitars' ),
-				'type' => 'wysiwyg',
+				'name'    => __( 'Base price text', 'fg-guitars' ),
+				'type'    => 'wysiwyg',
+				'options' => array(
+					'media_buttons' => false,
+					'textarea_rows' => 10,
+					'teeny'         => true,
+					'quicktags'     => false
+				),
 			),
 			'pricing_items' => array(
 				'name'   => __( 'Extra options', 'fg-guitars' ),
 				'type'   => 'group',
 				'fields' => array(
 					'extra_option'       => array(
-						'name' => __( 'Extra option', 'fg-guitars' ),
-						'type'  => 'text',
+						'name'    => __( 'Extra option', 'fg-guitars' ),
+						'type'    => 'wysiwyg',
+						'options' => array(
+							'media_buttons' => false,
+							'textarea_rows' => 10,
+							'teeny'         => true,
+							'quicktags'     => false
+						),
 					),
 					'extra_option_price' => array(
-						'name' => __( 'Extra option price', 'fg-guitars' ),
-						'type'  => 'text_money',
+						'name'       => __( 'Extra option price', 'fg-guitars' ),
+						'type'       => 'text_small',
+						'attributes' => array(
+							'type' => 'number'
+						)
 					),
 				)
 			),

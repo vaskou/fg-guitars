@@ -25,8 +25,16 @@ class FG_Guitars_Short_Description_Fields extends FG_Guitars_Post_Type_Fields {
 				'type' => 'text'
 			),
 			'type'  => array(
-				'name' => __( 'Guitar Type', 'fg-guitars' ),
-				'type' => 'text'
+				'name'    => __( 'Guitar Type', 'fg-guitars' ),
+				'type'    => 'wysiwyg',
+				'options' => array(
+					'wpautop'       => true,
+					'media_buttons' => false,
+					'textarea_rows' => 10,
+					'teeny'         => true,
+					'tinymce'       => true,
+					'quicktags'     => false
+				),
 			),
 			'style' => array(
 				'name' => __( 'Guitar Style', 'fg-guitars' ),
@@ -56,7 +64,7 @@ class FG_Guitars_Short_Description_Fields extends FG_Guitars_Post_Type_Fields {
 	}
 
 	public function getType( $post_id ) {
-		return get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'type', true );
+		return wpautop( get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'type', true ) );
 	}
 
 	public function getTypeLabel() {

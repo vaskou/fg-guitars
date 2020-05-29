@@ -5,6 +5,7 @@ defined( 'ABSPATH' ) or die();
 class FG_Guitars_Shortcodes {
 
 	const FEATURES_SHORTCODE_NAME = 'fg-guitar-features';
+	const GUITAR_CATEGORIES_SHORTCODE_NAME = 'fg-guitar-categories';
 
 	private static $instance = null;
 
@@ -22,6 +23,7 @@ class FG_Guitars_Shortcodes {
 
 	public function register_shortcodes() {
 		add_shortcode( self::FEATURES_SHORTCODE_NAME, array( $this, 'features_shortcode' ) );
+		add_shortcode( self::GUITAR_CATEGORIES_SHORTCODE_NAME, array( $this, 'guitar_categories_shortcode' ) );
 	}
 
 	public function features_shortcode( $atts ) {
@@ -69,5 +71,48 @@ class FG_Guitars_Shortcodes {
 
 		return ob_get_clean();
 
+	}
+
+	public function guitar_categories_shortcode( $atts ) {
+
+		ob_start();
+
+		$guitars           = FG_Guitars_Post_Type::getInstance();
+		$guitar_categories = $guitars->get_categories();
+
+		if ( ! empty( $guitar_categories ) ):
+			?>
+            <div class="uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
+				<?php
+				foreach ( $guitar_categories as $category ):
+					?>
+                    <div class="uk-flex uk-child-width-1-1">
+                        <div class="fg-box uk-text-center uk-flex uk-child-width-1-1 uk-flex-right uk-flex-column">
+							<?php
+							$link = get_term_link($category->term_id);
+
+							$image = z_taxonomy_image( $category->term_id, 'full', null, false );
+							if ( ! empty( $image ) ):
+								?>
+                                <a href="<?php echo $link; ?>" class="uk-display-block ">
+									<?php echo $image; ?>
+                                </a>
+							<?php
+							endif;
+							?>
+                            <a href="<?php echo $link; ?>" class="uk-display-block ">
+								<h3 class="entry-title"><?php echo $category->name; ?></h3>
+                            </a>
+                        </div>
+                    </div>
+				<?php
+				endforeach;
+
+				?>
+            </div>
+		<?php
+		endif;
+
+		return ob_get_clean();
 	}
 }

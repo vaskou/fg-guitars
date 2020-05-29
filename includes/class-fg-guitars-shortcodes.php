@@ -89,9 +89,13 @@ class FG_Guitars_Shortcodes {
                     <div class="uk-flex uk-child-width-1-1">
                         <div class="fg-box uk-text-center uk-flex uk-child-width-1-1 uk-flex-right uk-flex-column">
 							<?php
-							$link = get_term_link($category->term_id);
+							$link  = get_term_link( $category->term_id );
+							$image = '';
 
-							$image = z_taxonomy_image( $category->term_id, 'full', null, false );
+							if ( function_exists( 'z_taxonomy_image' ) ) {
+								$image = z_taxonomy_image( $category->term_id, 'full', null, false );
+							}
+							
 							if ( ! empty( $image ) ):
 								?>
                                 <a href="<?php echo $link; ?>" class="uk-display-block ">
@@ -101,7 +105,7 @@ class FG_Guitars_Shortcodes {
 							endif;
 							?>
                             <a href="<?php echo $link; ?>" class="uk-display-block ">
-								<h3 class="entry-title"><?php echo $category->name; ?></h3>
+                                <h3 class="entry-title"><?php echo $category->name; ?></h3>
                             </a>
                         </div>
                     </div>

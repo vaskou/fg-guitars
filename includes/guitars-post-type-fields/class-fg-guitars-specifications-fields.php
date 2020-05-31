@@ -196,7 +196,7 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 						),
 					),
 					'asterisk'            => array(
-						'name' => __( 'Asterisk', 'fg-guitars' ),
+						'name' => __( '*', 'fg-guitars' ),
 						'type' => 'textarea'
 					),
 				),

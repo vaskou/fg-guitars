@@ -6,6 +6,7 @@ class FG_Guitars_Shortcodes {
 
 	const FEATURES_SHORTCODE_NAME = 'fg-guitar-features';
 	const GUITAR_CATEGORIES_SHORTCODE_NAME = 'fg-guitar-categories';
+	const GUITARS_SHORTCODE_NAME = 'fg-guitars';
 
 	private static $instance = null;
 
@@ -24,6 +25,7 @@ class FG_Guitars_Shortcodes {
 	public function register_shortcodes() {
 		add_shortcode( self::FEATURES_SHORTCODE_NAME, array( $this, 'features_shortcode' ) );
 		add_shortcode( self::GUITAR_CATEGORIES_SHORTCODE_NAME, array( $this, 'guitar_categories_shortcode' ) );
+		add_shortcode( self::GUITARS_SHORTCODE_NAME, array( $this, 'guitars_shortcode' ) );
 	}
 
 	public function features_shortcode( $atts ) {
@@ -82,7 +84,7 @@ class FG_Guitars_Shortcodes {
 
 		if ( ! empty( $guitar_categories ) ):
 			?>
-            <div class="uk-child-width-1-2@s uk-child-width-1-4@m" uk-grid>
+            <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-grid" uk-grid>
 				<?php
 				foreach ( $guitar_categories as $category ):
 					?>
@@ -95,16 +97,13 @@ class FG_Guitars_Shortcodes {
 							if ( function_exists( 'z_taxonomy_image' ) ) {
 								$image = z_taxonomy_image( $category->term_id, 'full', null, false );
 							}
-							
-							if ( ! empty( $image ) ):
-								?>
-                                <a href="<?php echo $link; ?>" class="uk-display-block ">
-									<?php echo $image; ?>
-                                </a>
-							<?php
-							endif;
 							?>
                             <a href="<?php echo $link; ?>" class="uk-display-block ">
+								<?php
+								if ( ! empty( $image ) ):
+									echo $image;
+								endif;
+								?>
                                 <h3 class="entry-title"><?php echo $category->name; ?></h3>
                             </a>
                         </div>
@@ -116,6 +115,58 @@ class FG_Guitars_Shortcodes {
             </div>
 		<?php
 		endif;
+
+		return ob_get_clean();
+	}
+
+	public function guitars_shortcode( $atts ) {
+
+		$guitars                = FG_Guitars_Post_Type::getInstance();
+		$categories_items_array = $guitars->get_categories_items_array();
+
+		if ( empty( $categories_items_array ) ) {
+			return '';
+		}
+
+		ob_start();
+
+		foreach ( $categories_items_array as $category ):
+			?>
+            <div class="uk-container uk-margin-medium-bottom">
+                <h2><?php echo $category['cat_name']; ?></h2>
+				<?php
+				if ( ! empty( $category['items'] ) ):
+					?>
+                    <div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-grid" uk-grid>
+						<?php
+						foreach ( $category['items'] as $guitar ):
+							?>
+                            <div class="uk-flex uk-child-width-1-1">
+                                <div class="fg-box uk-text-center uk-flex uk-child-width-1-1 uk-flex-right uk-flex-column">
+									<?php
+									$link = get_permalink( $guitar['id'] );
+									?>
+                                    <a href="<?php echo $link; ?>" class="uk-display-block ">
+										<?php
+										if ( ! empty( $guitar['image'] ) ):
+											echo $guitar['image'];
+										endif;
+										?>
+                                        <h3><?php echo esc_html( $guitar['title'] ); ?></h3>
+                                    </a>
+                                </div>
+                            </div>
+						<?php
+						endforeach;
+						?>
+                    </div>
+				<?php
+				endif;
+				?>
+            </div>
+		<?php
+		endforeach;
+
 
 		return ob_get_clean();
 	}

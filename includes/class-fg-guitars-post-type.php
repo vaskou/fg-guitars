@@ -29,6 +29,7 @@ class FG_Guitars_Post_Type {
 		add_action( 'init', array( $this, 'register_post_type' ) );
 		add_action( 'init', array( $this, 'register_taxonomy' ) );
 		add_action( 'cmb2_admin_init', array( $this, 'add_metaboxes' ) );
+		add_action( 'pre_get_posts', array( $this, 'custom_query' ) );
 	}
 
 	/**
@@ -146,6 +147,20 @@ class FG_Guitars_Post_Type {
 		FG_Guitars_Features_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Pricing_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
 
+	}
+
+	/**
+	 * @param $query WP_Query
+	 */
+	public function custom_query( $query ) {
+
+		if ( ! is_admin() && $query->is_main_query() && $query->is_tax() ) {
+			if ( ! empty( $query->get( self::TAXONOMY_NAME ) ) ) {
+				$query->set( 'orderby', 'menu_order title' );
+				$query->set( 'order', 'ASC' );
+				$query->set( 'suppress_filters', 'true' );
+			}
+		}
 	}
 
 	/**

@@ -20,5 +20,20 @@ define( 'FG_GUITARS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FG_GUITARS_PLUGIN_DIR_NAME', basename( FG_GUITARS_PLUGIN_DIR_PATH ) );
 define( 'FG_GUITARS_PLUGIN_URL', plugins_url( FG_GUITARS_PLUGIN_DIR_NAME ) );
 
+include 'includes/class-fg-guitars.php';
+include 'includes/class-fg-guitars-dependencies.php';
+include 'includes/class-fg-guitars-post-type.php';
+include 'includes/class-fg-guitars-shortcodes.php';
 
+include 'includes/guitars-post-type-fields/abstract-class-fg-guitars-post-type-fields.php';
+include 'includes/guitars-post-type-fields/class-fg-guitars-images-fields.php';
+include 'includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php';
+include 'includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php';
+include 'includes/guitars-post-type-fields/class-fg-guitars-sounds-fields.php';
+include 'includes/guitars-post-type-fields/class-fg-guitars-features-fields.php';
+include 'includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php';
+
+include 'includes/cmb2-custom-fields/class-fg-guitars-cmb2-features-field-dropdown.php';
+
+FG_Guitars::getInstance()->init();
 

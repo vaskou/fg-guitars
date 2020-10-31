@@ -35,5 +35,5 @@ include 'includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php';
 
 include 'includes/cmb2-custom-fields/class-fg-guitars-cmb2-features-field-dropdown.php';
 
-FG_Guitars::getInstance()->init();
+FG_Guitars::instance();
 

@@ -15,21 +15,18 @@ class FG_Guitars_Post_Type {
 	 * FG_Guitars_Post_Type constructor.
 	 */
 	private function __construct() {
+		add_action( 'init', array( $this, 'register_post_type' ) );
+		add_action( 'init', array( $this, 'register_taxonomy' ) );
+		add_action( 'cmb2_admin_init', array( $this, 'add_metaboxes' ) );
+		add_action( 'pre_get_posts', array( $this, 'custom_query' ) );
 	}
 
-	public static function getInstance() {
+	public static function instance() {
 		if ( self::$instance == null ) {
 			self::$instance = new self();
 		}
 
 		return self::$instance;
-	}
-
-	public function init() {
-		add_action( 'init', array( $this, 'register_post_type' ) );
-		add_action( 'init', array( $this, 'register_taxonomy' ) );
-		add_action( 'cmb2_admin_init', array( $this, 'add_metaboxes' ) );
-		add_action( 'pre_get_posts', array( $this, 'custom_query' ) );
 	}
 
 	/**
@@ -140,12 +137,12 @@ class FG_Guitars_Post_Type {
 	 */
 	public function add_metaboxes() {
 
-		FG_Guitars_Images_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Short_Description_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Specifications_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Sounds_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Features_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
-		FG_Guitars_Pricing_Fields::getInstance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Images_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Short_Description_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Specifications_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Sounds_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Features_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Pricing_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
 
 	}
 
@@ -207,7 +204,7 @@ class FG_Guitars_Post_Type {
 				);
 
 				foreach ( $items as $item ) {
-					$images_fields = FG_Guitars_Images_Fields::getInstance();
+					$images_fields = FG_Guitars_Images_Fields::instance();
 					$image_meta    = $images_fields->getMenuImageID( $item->ID );
 
 					$categories_items_array[ $cat_id ]['items'][ $item->ID ] = array(

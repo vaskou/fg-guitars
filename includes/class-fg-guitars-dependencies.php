@@ -7,9 +7,14 @@ class FG_Guitars_Dependencies {
 	private static $instance = null;
 
 	private function __construct() {
+		if ( did_action( 'plugins_loaded' ) ) {
+			self::on_plugins_loaded();
+		} else {
+			add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ) );
+		}
 	}
 
-	public static function getInstance() {
+	public static function instance() {
 		if ( self::$instance == null ) {
 			self::$instance = new self();
 		}

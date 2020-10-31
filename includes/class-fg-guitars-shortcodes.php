@@ -10,16 +10,19 @@ class FG_Guitars_Shortcodes {
 
 	private static $instance = null;
 
-	public static function getInstance() {
+	/**
+	 * FG_Guitars_Shortcodes constructor.
+	 */
+	private function __construct() {
+		add_action( 'init', array( $this, 'register_shortcodes' ) );
+	}
+
+	public static function instance() {
 		if ( self::$instance == null ) {
 			self::$instance = new self();
 		}
 
 		return self::$instance;
-	}
-
-	public function init() {
-		add_action( 'init', array( $this, 'register_shortcodes' ) );
 	}
 
 	public function register_shortcodes() {
@@ -79,7 +82,7 @@ class FG_Guitars_Shortcodes {
 
 		ob_start();
 
-		$guitars           = FG_Guitars_Post_Type::getInstance();
+		$guitars           = FG_Guitars_Post_Type::instance();
 		$guitar_categories = $guitars->get_categories();
 
 		if ( ! empty( $guitar_categories ) ):
@@ -121,7 +124,7 @@ class FG_Guitars_Shortcodes {
 
 	public function guitars_shortcode( $atts ) {
 
-		$guitars                = FG_Guitars_Post_Type::getInstance();
+		$guitars                = FG_Guitars_Post_Type::instance();
 		$categories_items_array = $guitars->get_categories_items_array();
 
 		if ( empty( $categories_items_array ) ) {

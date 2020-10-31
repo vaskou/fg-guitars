@@ -8,7 +8,7 @@ class FG_Guitars_CMB2_Features_Field_Dropdown {
 
 	private static $instance;
 
-	public static function get_instance() {
+	public static function instance() {
 		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
@@ -37,11 +37,11 @@ class FG_Guitars_CMB2_Features_Field_Dropdown {
 		$pickups  = array();
 
 		if ( class_exists( 'FG_Features_Post_Type' ) ) {
-			$features = FG_Features_Post_Type::getInstance()->get_items();
+			$features = FG_Features_Post_Type::instance()->get_items();
 		}
 
 		if ( class_exists( 'FG_Pickups_Post_Type' ) ) {
-			$pickups = FG_Pickups_Post_Type::getInstance()->get_items();
+			$pickups = FG_Pickups_Post_Type::instance()->get_items();
 		}
 
 		$items = array_merge( $features, $pickups );

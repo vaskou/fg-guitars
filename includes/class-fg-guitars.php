@@ -18,6 +18,8 @@ class FG_Guitars {
 	 * FG_Guitars constructor.
 	 */
 	private function __construct() {
+		add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ) );
+
 		FG_Guitars_Dependencies::instance();
 		FG_Guitars_Post_Type::instance();
 		FG_Guitars_Shortcodes::instance();
@@ -25,7 +27,7 @@ class FG_Guitars {
 	}
 
 	public function on_plugins_loaded() {
-		load_plugin_textdomain( 'fg-features', false, FG_GUITARS_PLUGIN_DIR_NAME . '/languages/' );
+		load_plugin_textdomain( 'fg-guitars', false, FG_GUITARS_PLUGIN_DIR_NAME . '/languages/' );
 	}
 
 }

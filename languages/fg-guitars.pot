@@ -1,0 +1,400 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FremeditiGuitars - Guitars\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-09 17:33+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.0; wp-5.6.1\n"
+"X-Domain: fg-guitars"
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:199
+msgid "*"
+msgstr ""
+
+#: includes/guitars-post-type-fields/abstract-class-fg-guitars-post-type-fields.php:143
+#, php-format
+msgid "Add Another %s"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:46
+msgid "Add New"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:45
+msgid "Add New FG Guitar"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:106
+msgid "Add New FG Guitar Category"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:101
+msgid "All FG Guitar Categories"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:44
+msgid "All FG Guitars"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:55
+msgid "Back"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:20
+msgid "Base price"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:27
+msgid "Base price text"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:99
+msgid "Binding"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:37
+msgid "Body"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:41
+msgid "Body Top"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:73
+msgid "Bracing"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:125
+msgid "Bridge"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:189
+msgid "Case"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:181
+msgid "Color"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:26
+msgid "Configuration Image"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:155
+msgid "Controls"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:48
+msgid "Edit FG Guitar"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:104
+msgid "Edit FG Guitar Category"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:41
+msgid "Extra option"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:51
+msgid "Extra option price"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:37
+msgid "Extra options"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:109
+msgid "F-Hole"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-features-fields.php:27
+msgid "Feature & Pickup"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:55
+msgid "Featured Image"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-features-fields.php:23
+msgid "Features"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:74
+msgid "FG Guitar"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:41
+msgid "FG Guitar Archives"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:42
+msgid "FG Guitar Attributes"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:98
+#: includes/class-fg-guitars-post-type.php:108
+msgid "FG Guitar Categories"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:99
+msgid "FG Guitar Category"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:75
+msgid "FG Guitar Description"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:38
+msgctxt "FG Guitar Singular Name"
+msgid "FG Guitar"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:39
+#: includes/class-fg-guitars-post-type.php:40
+msgid "FG Guitars"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:37
+msgctxt "FG Guitars General Name"
+msgid "FG Guitars"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:61
+msgid "FG Guitars list"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:62
+msgid "FG Guitars list navigation"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:63
+msgid "Filter FG Guitars list"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:95
+msgid "Fingerboard"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:173
+msgid "Fingerrest"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:177
+msgid "Finish"
+msgstr ""
+
+#. Name of the plugin
+msgid "FremeditiGuitars - Guitars"
+msgstr ""
+
+#. Description of the plugin
+msgid "FremeditiGuitars - Guitars Post Type"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:121
+msgid "Frets"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php:40
+msgid "Guitar Style"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php:28
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:22
+msgid "Guitar Type"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:165
+msgid "Hardware"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:91
+msgid "Headstock"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-images-fields.php:17
+#: includes/guitars-post-type-fields/class-fg-guitars-images-fields.php:31
+msgid "Images"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:59
+msgid "Insert into FG Guitar"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:69
+msgid "Inside"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-images-fields.php:20
+msgid "Menu Image"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php:24
+msgid "Model Name"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:87
+msgid "Neck"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:77
+msgid "Neck Joint"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:47
+msgid "New FG Guitar"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:107
+msgid "New FG Guitar Category Name"
+msgstr ""
+
+#: includes/cmb2-custom-fields/class-fg-guitars-cmb2-features-field-dropdown.php:50
+msgid "None"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:53
+msgid "Not found"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:54
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:102
+msgid "Parent FG Guitar Category"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:103
+msgid "Parent FG Guitar Category:"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:43
+msgid "Parent FG Guitar:"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php:44
+msgid "Photo"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:169
+msgid "Pickguard"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:145
+msgid "Pickups"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:17
+msgid "Pricing"
+msgstr ""
+
+#: includes/guitars-post-type-fields/abstract-class-fg-guitars-post-type-fields.php:144
+#, php-format
+msgid "Remove %s"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:57
+msgid "Remove Featured Image"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:117
+msgid "Scale"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:52
+msgid "Search FG Guitar"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:100
+msgid "Search FG Guitar Categories"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:56
+msgid "Set Featured Image"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php:17
+msgid "Short Description"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:65
+msgid "Sides"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-sounds-fields.php:17
+msgid "Sounds"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:19
+msgid "Specifications"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:185
+msgid "Strings"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:135
+msgid "Tailpiece"
+msgstr ""
+
+#: includes/class-fg-guitars-dependencies.php:58
+#, php-format
+msgid ""
+"The FremeditiGuitars - Guitars plugin requires <a href=\"%s\">CMB2</a> to be "
+"installed and active."
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php:20
+msgid "Title"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:45
+msgid "Top"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:49
+msgid "Update FG Guitar"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:105
+msgid "Update FG Guitar Category"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:60
+msgid "Uploaded to this FG Guitar"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:58
+msgid "Use as Featured Image"
+msgstr ""
+
+#. Author of the plugin
+msgid "Vasilis Koutsopoulos"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-sounds-fields.php:20
+msgid "Videos"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:50
+msgid "View FG Guitar"
+msgstr ""
+
+#: includes/class-fg-guitars-post-type.php:51
+msgid "View FG Guitars"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:113
+msgid "Width At Nut"
+msgstr ""

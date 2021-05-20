@@ -220,6 +220,13 @@ class FG_Guitars_Post_Type {
 
 	}
 
+	public function get_price( $post_id ) {
+
+		$price = get_post_meta( $post_id, 'fgg_pricing_price', true );
+
+		return apply_filters( 'fg_guitars_post_type_get_price', $price, $post_id );
+	}
+
 	/**
 	 * @param array $args
 	 *

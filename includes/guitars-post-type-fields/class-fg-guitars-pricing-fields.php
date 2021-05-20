@@ -15,12 +15,12 @@ class FG_Guitars_Pricing_Fields extends FG_Guitars_Post_Type_Fields {
 	private function __construct() {
 		$this->metabox_id    = 'pricing';
 		$this->metabox_title = __( 'Pricing', 'fg-guitars' );
-		$this->fields        = array(
+		$this->fields        = apply_filters( 'fg_guitars_pricing_fields', array(
 			'price'         => array(
 				'name'       => __( 'Base price', 'fg-guitars' ),
-				'type'       => 'text_small',
+				'type'       => apply_filters( 'fg_guitars_pricing_price_field_type', 'text_small' ),
 				'attributes' => array(
-					'type' => 'number',
+					'type' => apply_filters( 'fg_guitars_pricing_price_field_type', 'number' ),
 				)
 			),
 			'price_text'    => array(
@@ -56,7 +56,7 @@ class FG_Guitars_Pricing_Fields extends FG_Guitars_Post_Type_Fields {
 					),
 				)
 			),
-		);
+		) );
 	}
 
 	public function getPrice( $post_id ) {

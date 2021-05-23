@@ -75,11 +75,11 @@ class FG_Guitars_Pricing_Fields extends FG_Guitars_Post_Type_Fields {
 		return $this->getFieldLabel( 'price_text' );
 	}
 
-	public function getPriceItems( $post_id ) {
+	public function getPricingItems( $post_id ) {
 		return get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'pricing_items', true );
 	}
 
-	public function getPriceItemsLabel() {
+	public function getPricingItemsLabel() {
 		return $this->getFieldLabel( 'pricing_items' );
 	}
 

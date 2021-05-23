@@ -222,9 +222,21 @@ class FG_Guitars_Post_Type {
 
 	public function get_price( $post_id ) {
 
-		$price = get_post_meta( $post_id, 'fgg_pricing_price', true );
+		$price = FG_Guitars_Pricing_Fields::instance()->getPrice( $post_id );
 
 		return apply_filters( 'fg_guitars_post_type_get_price', $price, $post_id );
+	}
+
+	public function get_pricing_items( $post_id ) {
+		$price_items = FG_Guitars_Pricing_Fields::instance()->getPricingItems( $post_id );
+
+		foreach ( $price_items as &$item ) {
+			$item['extra_option_price'] = isset( $item['extra_option_price'] ) ?
+				apply_filters( 'fg_guitars_post_type_get_extra_option_price', $item['extra_option_price'], $item, $post_id ) :
+				'';
+		}
+
+		return $price_items;
 	}
 
 	/**

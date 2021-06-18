@@ -24,6 +24,7 @@ class FG_Guitars {
 		FG_Guitars_Post_Type::instance();
 		FG_Guitars_Shortcodes::instance();
 		FG_Guitars_CMB2_Features_Field_Dropdown::instance();
+		FG_Guitars_Settings::instance();
 	}
 
 	public function on_plugins_loaded() {

@@ -20,9 +20,12 @@ define( 'FG_GUITARS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FG_GUITARS_PLUGIN_DIR_NAME', basename( FG_GUITARS_PLUGIN_DIR_PATH ) );
 define( 'FG_GUITARS_PLUGIN_URL', plugins_url( FG_GUITARS_PLUGIN_DIR_NAME ) );
 
+include 'vendor/autoload.php';
+
 include 'includes/class-fg-guitars.php';
 include 'includes/class-fg-guitars-dependencies.php';
 include 'includes/class-fg-guitars-post-type.php';
+include 'includes/class-fg-guitars-settings.php';
 include 'includes/class-fg-guitars-shortcodes.php';
 
 include 'includes/guitars-post-type-fields/abstract-class-fg-guitars-post-type-fields.php';

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FremeditiGuitars - Guitars\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-09 17:33+0000\n"
+"POT-Creation-Date: 2021-06-18 16:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,6 +15,10 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.5.0; wp-5.6.1\n"
 "X-Domain: fg-guitars"
+
+#: includes/class-fg-guitars-settings.php:30
+msgid "\"Contact Us\" Page"
+msgstr ""
 
 #: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:199
 msgid "*"
@@ -53,7 +57,7 @@ msgstr ""
 msgid "Base price"
 msgstr ""
 
-#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:27
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:32
 msgid "Base price text"
 msgstr ""
 
@@ -101,15 +105,15 @@ msgstr ""
 msgid "Edit FG Guitar Category"
 msgstr ""
 
-#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:41
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:46
 msgid "Extra option"
 msgstr ""
 
-#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:51
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:56
 msgid "Extra option price"
 msgstr ""
 
-#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:37
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:42
 msgid "Extra options"
 msgstr ""
 
@@ -177,6 +181,11 @@ msgstr ""
 msgid "FG Guitars list navigation"
 msgstr ""
 
+#: includes/class-fg-guitars-settings.php:23
+#: includes/class-fg-guitars-settings.php:24
+msgid "FG Guitars Settings"
+msgstr ""
+
 #: includes/class-fg-guitars-post-type.php:63
 msgid "Filter FG Guitars list"
 msgstr ""
@@ -203,6 +212,10 @@ msgstr ""
 
 #: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:121
 msgid "Frets"
+msgstr ""
+
+#: includes/class-fg-guitars-settings.php:27
+msgid "General"
 msgstr ""
 
 #: includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php:40
@@ -326,6 +339,14 @@ msgstr ""
 
 #: includes/guitars-post-type-fields/class-fg-guitars-short-description-fields.php:17
 msgid "Short Description"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:27
+msgid "Show \"Contact Us\" button"
+msgstr ""
+
+#: includes/guitars-post-type-fields/class-fg-guitars-pricing-fields.php:29
+msgid "Show \"Contact Us\" button instead of \"Base Price\""
 msgstr ""
 
 #: includes/guitars-post-type-fields/class-fg-guitars-specifications-fields.php:65

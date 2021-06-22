@@ -26,7 +26,7 @@ class FG_Guitars_Pricing_Fields extends FG_Guitars_Post_Type_Fields {
 			'show_contact_button' => array(
 				'name'        => __( 'Show "Contact Us" button', 'fg-guitars' ),
 				'type'        => 'checkbox',
-				'description' => __( 'Show "Contact Us" button instead of "Base Price"', 'fg-guitars' ),
+				'description' => __( 'Show "Contact Us" button instead of "Base Price" in Greek IPs', 'fg-guitars' ),
 			),
 			'price_text'          => array(
 				'name'    => __( 'Base price text', 'fg-guitars' ),

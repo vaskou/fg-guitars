@@ -81,7 +81,17 @@ class FG_Guitars_Pricing_Fields extends FG_Guitars_Post_Type_Fields {
 	}
 
 	public function getShowContactButton( $post_id ) {
-		return get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'show_contact_button', true );
+		if ( ! function_exists( 'geoip_detect2_get_info_from_current_ip' ) ) {
+			return false;
+		}
+
+		$geo_info = geoip_detect2_get_info_from_current_ip();
+
+		$country = $geo_info->country->isoCode;
+
+		$show_contact_us_button = get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'show_contact_button', true );
+
+		return $show_contact_us_button && 'GR' == $country;
 	}
 
 	public function getPricingItems( $post_id ) {

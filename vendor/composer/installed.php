@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '3411dac3917a30737f14e406eccc8acbcc10f6b0',
+    'reference' => '31d29c716b151198956fb9b04bd4f0146b7252e2',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '3411dac3917a30737f14e406eccc8acbcc10f6b0',
+      'reference' => '31d29c716b151198956fb9b04bd4f0146b7252e2',
     ),
     'vaskou/wordpress-custom-settings' => 
     array (

@@ -155,7 +155,7 @@ class FG_Guitars_Post_Type {
 			if ( ! empty( $query->get( self::TAXONOMY_NAME ) ) ) {
 				$query->set( 'orderby', 'menu_order title' );
 				$query->set( 'order', 'ASC' );
-				$query->set( 'suppress_filters', 'true' );
+//				$query->set( 'suppress_filters', 'true' ); //wpml incompatible
 			}
 		}
 	}

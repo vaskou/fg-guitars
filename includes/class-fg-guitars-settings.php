@@ -23,6 +23,7 @@ class FG_Guitars_Settings extends SettingsSetup {
 		$this->set_page_title( __( 'FG Guitars Settings', 'fg-guitars' ) );
 		$this->set_menu_title( __( 'FG Guitars Settings', 'fg-guitars' ) );
 		$this->set_menu_slug( 'fg-guitars' );
+		$this->add_settings_link( FG_GUITARS_PLUGIN_BASENAME );
 
 		$this->add_section( new SettingSection( 'general', __( 'General', 'fg-guitars' ) ) );
 

@@ -18,8 +18,34 @@ class FG_Guitars {
 	 * FG_Guitars constructor.
 	 */
 	private function __construct() {
+
+		add_action( 'plugins_loaded', array( $this, 'includes' ) );
+
+		add_action( 'plugins_loaded', array( $this, 'init_classes' ) );
+
 		add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ) );
 
+	}
+
+	public function includes() {
+
+		include 'class-fg-guitars-dependencies.php';
+		include 'class-fg-guitars-post-type.php';
+		include 'class-fg-guitars-settings.php';
+		include 'class-fg-guitars-shortcodes.php';
+
+		include 'guitars-post-type-fields/abstract-class-fg-guitars-post-type-fields.php';
+		include 'guitars-post-type-fields/class-fg-guitars-images-fields.php';
+		include 'guitars-post-type-fields/class-fg-guitars-short-description-fields.php';
+		include 'guitars-post-type-fields/class-fg-guitars-specifications-fields.php';
+		include 'guitars-post-type-fields/class-fg-guitars-sounds-fields.php';
+		include 'guitars-post-type-fields/class-fg-guitars-features-fields.php';
+		include 'guitars-post-type-fields/class-fg-guitars-pricing-fields.php';
+
+		include 'cmb2-custom-fields/class-fg-guitars-cmb2-features-field-dropdown.php';
+	}
+
+	public function init_classes() {
 		FG_Guitars_Dependencies::instance();
 		FG_Guitars_Post_Type::instance();
 		FG_Guitars_Shortcodes::instance();

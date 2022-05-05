@@ -173,11 +173,11 @@ class FG_Guitars_Specifications_Fields extends FG_Guitars_Post_Type_Fields {
 						'name' => __( 'Fingerrest', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'htp_veneer_set'          => array(
+					'htp_veneer_set'      => array(
 						'name' => __( 'H.T.P. Veneer set', 'fg-guitars' ),
 						'type' => 'text'
 					),
-					'htp_ebony_set'          => array(
+					'htp_ebony_set'       => array(
 						'name' => __( 'H.T.P. Ebony set', 'fg-guitars' ),
 						'type' => 'text'
 					),

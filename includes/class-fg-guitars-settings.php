@@ -18,7 +18,7 @@ class FG_Guitars_Settings extends SettingsSetup {
 
 	protected function __construct() {
 
-		$this->set_submenu_parent_slug( 'options-general.php' );
+		$this->set_submenu_parent_slug( 'edit.php?post_type=fg_guitars' );
 
 		$this->set_page_title( __( 'FG Guitars Settings', 'fg-guitars' ) );
 		$this->set_menu_title( __( 'FG Guitars Settings', 'fg-guitars' ) );

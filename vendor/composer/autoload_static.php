@@ -6,18 +6,8 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit0bf561d5b3ed4660f4608c66f66a7c33
 {
-    public static $prefixLengthsPsr4 = array (
-        'W' => 
-        array (
-            'WordpressCustomSettings\\' => 24,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'WordpressCustomSettings\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/vaskou/wordpress-custom-settings/WordpressCustomSettings',
-        ),
+    public static $files = array (
+        '70430780f89c342e924b6181fe335fe2' => __DIR__ . '/..' . '/vaskou/wordpress-custom-settings/WordpressCustomSettings/bootstrap_2_0_2.php',
     );
 
     public static $classMap = array (
@@ -27,8 +17,6 @@ class ComposerStaticInit0bf561d5b3ed4660f4608c66f66a7c33
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0bf561d5b3ed4660f4608c66f66a7c33::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0bf561d5b3ed4660f4608c66f66a7c33::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit0bf561d5b3ed4660f4608c66f66a7c33::$classMap;
 
         }, null, ClassLoader::class);

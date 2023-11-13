@@ -136,9 +136,9 @@ abstract class FG_Guitars_Post_Type_Fields {
 		$group_title = $args['name'];
 
 		$group_id = $metabox->add_field( array(
-			'id'      => $args['id'],
-			'type'    => 'group',
-			'options' => array(
+			'id'         => $args['id'],
+			'type'       => 'group',
+			'options'    => array(
 				'group_title'   => $group_title . ' {#}',
 				'add_button'    => sprintf( __( 'Add Another %s', 'fg-guitars' ), $group_title ),
 				'remove_button' => sprintf( __( 'Remove %s', 'fg-guitars' ), $group_title ),
@@ -146,6 +146,7 @@ abstract class FG_Guitars_Post_Type_Fields {
 				// 'closed'         => true, // true to have the groups closed by default
 				// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
 			),
+			'repeatable' => isset( $args['repeatable'] ) ? $args['repeatable'] : true,
 		) );
 
 		$this->_addMetaboxGroupFields( $metabox, $group_id, $args );

@@ -35,6 +35,7 @@ class FG_Guitars {
 		include 'class-fg-guitars-shortcodes.php';
 
 		include 'guitars-post-type-fields/abstract-class-fg-guitars-post-type-fields.php';
+		include 'guitars-post-type-fields/class-fg-guitars-custom-specifications-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-images-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-short-description-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-specifications-fields.php';
@@ -43,6 +44,8 @@ class FG_Guitars {
 		include 'guitars-post-type-fields/class-fg-guitars-pricing-fields.php';
 
 		include 'cmb2-custom-fields/class-fg-guitars-cmb2-features-field-dropdown.php';
+
+		include 'custom-specifications/class-fg-guitars-specifications-post-type.php';
 	}
 
 	public function init_classes() {
@@ -51,6 +54,8 @@ class FG_Guitars {
 		FG_Guitars_Shortcodes::instance();
 		FG_Guitars_CMB2_Features_Field_Dropdown::instance();
 		FG_Guitars_Settings::instance();
+
+		FG_Guitars_Specifications_Post_Type::instance();
 	}
 
 	public function on_plugins_loaded() {

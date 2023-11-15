@@ -45,7 +45,7 @@ class FG_Guitars {
 
 		include 'cmb2-custom-fields/class-fg-guitars-cmb2-features-field-dropdown.php';
 
-		include 'custom-specifications/class-fg-guitars-specifications-post-type.php';
+		include 'specifications-groups/class-fg-guitars-specifications-groups-post-type.php';
 	}
 
 	public function init_classes() {
@@ -55,7 +55,7 @@ class FG_Guitars {
 		FG_Guitars_CMB2_Features_Field_Dropdown::instance();
 		FG_Guitars_Settings::instance();
 
-		FG_Guitars_Specifications_Post_Type::instance();
+		FG_Guitars_Specifications_Groups_Post_Type::instance();
 	}
 
 	public function on_plugins_loaded() {

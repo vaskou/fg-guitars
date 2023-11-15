@@ -13,19 +13,19 @@ class FG_Guitars_Custom_Specifications_Fields extends FG_Guitars_Post_Type_Field
 	}
 
 	private function __construct() {
-		$this->metabox_id    = 'custom_specifications';
-		$this->metabox_title = __( 'Custom Specifications', 'fg-guitars' );
+		$this->metabox_id    = 'specifications_group';
+		$this->metabox_title = __( 'Specifications Groups', 'fg-guitars' );
 		$this->fields        = [];
 
-		$specs = FG_Guitars_Specifications_Post_Type::instance()->get_items( [
+		$specs_groups = FG_Guitars_Specifications_Groups_Post_Type::instance()->get_items( [
 			'order' => 'ASC'
 		] );
 
-		foreach ( $specs as $spec ) {
+		foreach ( $specs_groups as $spec ) {
 			$spec_id    = $spec->ID;
 			$spec_slug  = $spec->post_name;
 			$spec_title = $spec->post_title;
-			$fields     = FG_Guitars_Specifications_Post_Type::get_custom_specs_fields( $spec_id );
+			$fields     = FG_Guitars_Specifications_Groups_Post_Type::get_custom_specs_fields( $spec_id );
 
 			$this->fields[ $spec_slug ] = [
 				'name'       => $spec_title,

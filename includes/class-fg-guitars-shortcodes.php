@@ -54,6 +54,7 @@ class FG_Guitars_Shortcodes {
 			'post_status'    => 'publish',
 			'posts_per_page' => - 1,
 			'orderby'        => 'post__in',
+			'layout'         => 'old',
 		);
 
 		$args = shortcode_atts( $default, $atts );
@@ -68,7 +69,14 @@ class FG_Guitars_Shortcodes {
 			while ( $query->have_posts() ) :
 				$query->the_post();
 
-				get_template_part( 'template-parts/content', get_post_type() );
+				switch ( $args['layout'] ) {
+					case 'new':
+						get_template_part( 'template-parts/new-guitar-layout/content', get_post_type() );
+						break;
+					case 'old':
+					default:
+						get_template_part( 'template-parts/content', get_post_type() );
+				}
 
 			endwhile;
 		endif;

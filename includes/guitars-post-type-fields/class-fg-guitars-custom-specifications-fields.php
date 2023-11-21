@@ -46,4 +46,8 @@ class FG_Guitars_Custom_Specifications_Fields extends FG_Guitars_Post_Type_Field
 
 	}
 
+	public function getGroupLabel( $field_group ) {
+		return $this->fields[ $field_group ]['name'];
+	}
+
 }

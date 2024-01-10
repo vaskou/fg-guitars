@@ -144,6 +144,7 @@ class FG_Guitars_Post_Type {
 		FG_Guitars_Features_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Pricing_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Custom_Specifications_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Available_Guitars_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
 
 	}
 

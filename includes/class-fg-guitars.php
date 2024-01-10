@@ -36,6 +36,7 @@ class FG_Guitars {
 
 		include 'guitars-post-type-fields/abstract-class-fg-guitars-post-type-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-custom-specifications-fields.php';
+		include 'guitars-post-type-fields/class-fg-guitars-available-guitars-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-images-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-short-description-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-specifications-fields.php';

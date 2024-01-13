@@ -45,6 +45,7 @@ class FG_Guitars {
 		include 'guitars-post-type-fields/class-fg-guitars-pricing-fields.php';
 
 		include 'cmb2-custom-fields/class-fg-guitars-cmb2-features-field-dropdown.php';
+		include 'cmb2-custom-fields/class-fg-guitars-cmb2-video-field.php';
 
 		include 'specifications-groups/class-fg-guitars-specifications-groups-post-type.php';
 	}
@@ -54,6 +55,7 @@ class FG_Guitars {
 		FG_Guitars_Post_Type::instance();
 		FG_Guitars_Shortcodes::instance();
 		FG_Guitars_CMB2_Features_Field_Dropdown::instance();
+		FG_Guitars_CMB2_Video_Field::instance();
 		FG_Guitars_Settings::instance();
 
 		FG_Guitars_Specifications_Groups_Post_Type::instance();

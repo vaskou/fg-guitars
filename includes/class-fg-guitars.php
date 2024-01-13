@@ -43,6 +43,7 @@ class FG_Guitars {
 		include 'guitars-post-type-fields/class-fg-guitars-sounds-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-features-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-pricing-fields.php';
+		include 'guitars-post-type-fields/class-fg-guitars-reviews-fields.php';
 
 		include 'cmb2-custom-fields/class-fg-guitars-cmb2-features-field-dropdown.php';
 		include 'cmb2-custom-fields/class-fg-guitars-cmb2-video-field.php';

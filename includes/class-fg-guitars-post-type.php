@@ -164,17 +164,21 @@ class FG_Guitars_Post_Type {
 	}
 
 	/**
+	 * @param array $args
+	 *
 	 * @return int[]|WP_Post[]
 	 */
-	public function get_items() {
-		return $this->_get_items();
+	public function get_items( $args = [] ) {
+		return $this->_get_items( $args );
 	}
 
 	/**
+	 * @param array $args
+	 *
 	 * @return int|WP_Error|WP_Term[]
 	 */
-	public function get_categories() {
-		return $this->_get_categories();
+	public function get_categories( $args = [] ) {
+		return $this->_get_categories( $args );
 	}
 
 	public function get_categories_items_array() {

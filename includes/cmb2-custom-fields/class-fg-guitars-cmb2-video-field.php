@@ -107,6 +107,10 @@ class FG_Guitars_CMB2_Video_Field {
 
 	public function escape_value( $escaped_value, $val ) {
 
+        if ( ! is_array( $val ) ) {
+			return array();
+		}
+
 		foreach ( $val as $key => $value ) {
 
 			if ( ! is_array( $value ) ) {

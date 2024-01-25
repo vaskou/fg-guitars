@@ -143,6 +143,9 @@ class FG_Guitars_Post_Type {
 		FG_Guitars_Sounds_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Features_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
 		FG_Guitars_Pricing_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Custom_Specifications_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Available_Guitars_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
+		FG_Guitars_Reviews_Fields::instance()->addMetaboxes( self::POST_TYPE_NAME );
 
 	}
 
@@ -161,17 +164,21 @@ class FG_Guitars_Post_Type {
 	}
 
 	/**
+	 * @param array $args
+	 *
 	 * @return int[]|WP_Post[]
 	 */
-	public function get_items() {
-		return $this->_get_items();
+	public function get_items( $args = [] ) {
+		return $this->_get_items( $args );
 	}
 
 	/**
+	 * @param array $args
+	 *
 	 * @return int|WP_Error|WP_Term[]
 	 */
-	public function get_categories() {
-		return $this->_get_categories();
+	public function get_categories( $args = [] ) {
+		return $this->_get_categories( $args );
 	}
 
 	public function get_categories_items_array() {

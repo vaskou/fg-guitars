@@ -18,7 +18,7 @@ class FG_Guitars_Sounds_Fields extends FG_Guitars_Post_Type_Fields {
 		$this->fields        = array(
 			'videos' => array(
 				'name'       => __( 'Videos', 'fg-guitars' ),
-				'type'       => 'text',
+				'type'       => 'fg_guitars_cmb2_video_field',
 				'repeatable' => true,
 			),
 		);

@@ -14,7 +14,7 @@
 
 defined( 'ABSPATH' ) or die();
 
-define( 'FG_GUITARS_VERSION', '1.1.1' );
+define( 'FG_GUITARS_VERSION', '1.1.2' );
 define( 'FG_GUITARS_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FG_GUITARS_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FG_GUITARS_PLUGIN_DIR_NAME', basename( FG_GUITARS_PLUGIN_DIR_PATH ) );

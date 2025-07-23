@@ -33,6 +33,7 @@ class FG_Guitars {
 		include 'class-fg-guitars-post-type.php';
 		include 'class-fg-guitars-settings.php';
 		include 'class-fg-guitars-shortcodes.php';
+		include 'class-fg-guitars-helpers.php';
 
 		include 'guitars-post-type-fields/abstract-class-fg-guitars-post-type-fields.php';
 		include 'guitars-post-type-fields/class-fg-guitars-custom-specifications-fields.php';

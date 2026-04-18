@@ -7,7 +7,6 @@ class FG_Guitars_Specifications_Groups_Post_Type {
 	const POST_TYPE_NAME = 'fg_guit_specs_groups';
 	const POST_TYPE_SLUG = 'guitars_specs_groups';
 	const GUITAR_SPECIFICATIONS_GROUP_FIELDS_META_KEY = 'fg_guitar_specs_group_fields';
-	const GROUP_NAME_TRANSLATION_META_KEY = 'fg_guitar_specs_group_name_translation';
 
 	private static $instance = null;
 
@@ -89,8 +88,6 @@ class FG_Guitars_Specifications_Groups_Post_Type {
 	}
 
 	public function add_metaboxes() {
-		$languages = FG_Guitars_Helpers::get_active_languages();
-
 		$cmb = new_cmb2_box( array(
 			'id'           => 'fg_guitars_specs_group',
 			'title'        => __( 'FG Guitars Specifications Group', 'fg-guitars' ),
@@ -99,18 +96,6 @@ class FG_Guitars_Specifications_Groups_Post_Type {
 			'priority'     => 'high',
 			'show_names'   => true,
 		) );
-
-		foreach ( $languages as $language ) {
-			if ( empty( $language['code'] ) || empty( $language['translated_name'] ) ) {
-				continue;
-			}
-
-			$cmb->add_field( array(
-				'name' => sprintf( __( 'Group Name %s Translation', 'fg-guitars' ), $language['translated_name'] ),
-				'id'   => self::GROUP_NAME_TRANSLATION_META_KEY . '_' . $language['code'],
-				'type' => 'text',
-			) );
-		}
 
 		$group_field_id = $cmb->add_field( array(
 			'name'    => __( 'Guitar Specifications Group Fields', 'fg-guitars' ),
@@ -139,19 +124,6 @@ class FG_Guitars_Specifications_Groups_Post_Type {
 				'wysiwyg' => __( 'Editor', 'fg-guitars' ),
 			]
 		) );
-
-		foreach ( $languages as $language ) {
-
-			if ( empty( $language['code'] ) || empty( $language['translated_name'] ) ) {
-				continue;
-			}
-
-			$cmb->add_group_field( $group_field_id, array(
-				'name' => sprintf( __( '%s Translation', 'fg-guitars' ), $language['translated_name'] ),
-				'id'   => "translation_{$language['code']}",
-				'type' => 'text',
-			) );
-		}
 	}
 
 	/**
@@ -161,12 +133,6 @@ class FG_Guitars_Specifications_Groups_Post_Type {
 	 */
 	public function get_items( $args = array() ) {
 		return $this->_get_items( $args );
-	}
-
-	public static function get_specs_group_name_translation( $post_id, $language ) {
-		$meta_key = self::GROUP_NAME_TRANSLATION_META_KEY . '_' . $language;
-
-		return get_post_meta( $post_id, $meta_key, true );
 	}
 
 	public static function get_custom_specs_fields( $post_id ) {

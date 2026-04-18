@@ -21,15 +21,10 @@ class FG_Guitars_Custom_Specifications_Fields extends FG_Guitars_Post_Type_Field
 			'order' => 'ASC'
 		] );
 
-		$current_lang = FG_Guitars_Helpers::get_current_language();
-
 		foreach ( $specs_groups as $spec ) {
-
-			$spec_title_translation = FG_Guitars_Specifications_Groups_Post_Type::get_specs_group_name_translation( $spec->ID, $current_lang );
-
 			$spec_id    = $spec->ID;
 			$spec_slug  = $spec->post_name;
-			$spec_title = ! empty( $spec_title_translation ) ? $spec_title_translation : $spec->post_title;
+			$spec_title = $spec->post_title;
 			$fields     = FG_Guitars_Specifications_Groups_Post_Type::get_custom_specs_fields( $spec_id );
 
 			$this->fields[ $spec_slug ] = [
@@ -44,10 +39,6 @@ class FG_Guitars_Custom_Specifications_Fields extends FG_Guitars_Post_Type_Field
 					continue;
 				}
 				$field_slug = sanitize_title( $field['name'] );
-
-				if ( ! empty( $field["translation_{$current_lang}"] ) ) {
-					$field['name'] = $field["translation_{$current_lang}"];
-				}
 
 				$this->fields[ $spec_slug ]['fields'][ $field_slug ] = is_array( $field ) ? $field : [];
 			}

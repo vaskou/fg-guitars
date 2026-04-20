@@ -60,11 +60,15 @@ class FG_Guitars_Some_Versions_Fields extends FG_Guitars_Post_Type_Fields {
 	}
 
 	public function getPriceRangeFrom( $post_id ) {
-		return get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'price_range_from', true );
+		$price = get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'price_range_from', true );
+
+		return apply_filters( 'fg_guitars_some_versions__price_range_from', $price, $post_id );
 	}
 
 	public function getPriceRangeTo( $post_id ) {
-		return get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'price_range_to', true );
+		$price = get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'price_range_to', true );
+
+		return apply_filters( 'fg_guitars_some_versions__price_range_to', $price, $post_id );
 	}
 
 	public function getApproximateTime( $post_id ) {

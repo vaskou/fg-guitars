@@ -16,7 +16,7 @@ class FG_Guitars_Some_Versions_Fields extends FG_Guitars_Post_Type_Fields {
 		$this->metabox_id    = 'some_versions';
 		$this->metabox_title = __( 'Some Versions', 'fg-guitars' );
 		$this->fields        = apply_filters( 'fg_guitars_some_versions_fields', array(
-			'versions'         => array(
+			'versions'               => array(
 				'name'   => __( 'Some Versions', 'fg-guitars' ),
 				'type'   => 'group',
 				'fields' => [
@@ -44,23 +44,33 @@ class FG_Guitars_Some_Versions_Fields extends FG_Guitars_Post_Type_Fields {
 					),
 				]
 			),
-			'price_range_from' => [
+			'featured_guitar_price'  => [
+				'name' => __( 'Featured guitar price', 'fg-guitars' ),
+				'type' => 'text_small',
+			],
+			'price_range_from'       => [
 				'name' => __( 'Price Range From', 'fg-guitars' ),
 				'type' => 'text_small',
 			],
-			'price_range_to'   => [
+			'price_range_to'         => [
 				'name' => __( 'Price Range to', 'fg-guitars' ),
 				'type' => 'text_small',
 			],
-			'has_available_products'  => [
-				'name'             => __( 'Has available products', 'fg-guitars' ),
-				'type'             => 'checkbox',
+			'has_available_products' => [
+				'name' => __( 'Has available products', 'fg-guitars' ),
+				'type' => 'checkbox',
 			],
-			'approximate_time' => [
+			'approximate_time'       => [
 				'name' => __( 'New order approximate time', 'fg-guitars' ),
 				'type' => 'text',
 			],
 		) );
+	}
+
+	public function getFeaturedGuitarPrice( $post_id ) {
+		$price = get_post_meta( $post_id, $this->getFieldMetaKeyPrefix() . 'featured_guitar_price', true );
+
+		return apply_filters( 'fg_guitars_some_versions__price_range_from', $price, $post_id );
 	}
 
 	public function getPriceRangeFrom( $post_id ) {
